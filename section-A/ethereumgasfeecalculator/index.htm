@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethereum Gas Estimator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="calculator-container">
+        <h1>⛽ Ethereum Gas Estimator</h1>
+        <p class="subtitle">Calculate your Ethereum transaction costs in real-time</p>
+
+        <div class="live-price-section">
+            <div>
+                <div class="result-label">Current ETH Price</div>
+                <div class="result-value" id="ethPriceDisplay">$---.--</div>
+            </div>
+            <button id="fetchLivePrice" class="live-price-btn">Get Live Price</button>
+        </div>
+
+        <div class="input-group">
+            <label for="gasPrice">Gas Price (Gwei) </label>
+            <input type="number" id="gasPrice" placeholder="e.g., 20" value="20" step="0.1" min="0">
+            <div class="error" id="gasPriceError">Please enter a valid gas price</div>
+        </div>
+
+        <div class="input-group">
+            <label for="gasLimit">Gas Limit</label>
+            <input type="number" id="gasLimit" placeholder="e.g., 21000" value="21000" min="0">
+            <div class="error" id="gasLimitError">Please enter a valid gas limit</div>
+        </div>
+
+        <div class="gas-presets">
+            <div class="preset-btn" data-limit="21000">Send ETH</div>
+            <div class="preset-btn" data-limit="65000">ERC-20 Transfer</div>
+            <div class="preset-btn" data-limit="150000">Swap Token</div>
+            <div class="preset-btn" data-limit="200000">Contract Deploy</div>
+            <div class="preset-btn" data-limit="1000000">Complex Contract</div>
+            <div class="preset-btn" data-limit="0">Custom</div>
+        </div>
+
+        <div class="input-group">
+            <label for="ethPrice">ETH Price (USD)</label>
+            <input type="number" id="ethPrice" placeholder="e.g., 2500" value=" " step="0.01" min="0">
+            <div class="error" id="ethPriceError">Please enter a valid ETH price</div>
+        </div>
+
+        <button id="calculateBtn" class="calculate-btn">Calculate Transaction Cost</button>
+
+        <div class="results">
+            <div class="result-label">Transaction Cost (ETH)</div>
+            <div class="result-value" id="ethCost">0.00000000 ETH</div>
+
+            <div class="result-label">Transaction Cost (USD)</div>
+            <div class="result-value" id="usdCost">$0.00</div>
+        </div>
+
+        <p class="formula-note">
+            Formula: (Gas Price × Gas Limit) ÷ 1,000,000,000 = ETH Cost[citation:3]
+        </p>
+        <!-- Add this NEW SECTION after the transaction results -->
+        <div class="converter-section" style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #e9ecef;">
+            <h3 style="color: #333; margin-bottom: 15px;">💰 ETH to USD Converter</h3>
+
+            <div class="input-group">
+                <label for="ethAmount">ETH Amount</label>
+                <input type="number" id="ethAmount" placeholder="e.g., 1.5" value="1" step="0.001" min="0">
+                <div class="error" id="ethAmountError">Please enter a valid ETH amount</div>
+            </div>
+
+            <button id="convertBtn" class="calculate-btn" style="margin-bottom: 20px; background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+        Convert ETH to USD
+    </button>
+
+            <div class="results">
+                <div class="result-label">ETH Value in USD</div>
+                <div class="result-value" id="conversionResult">$0.00</div>
+            </div>
+        </div>
+    </div>
+    <script src="caculator.js "></script>
+</body>
+
+</html>
