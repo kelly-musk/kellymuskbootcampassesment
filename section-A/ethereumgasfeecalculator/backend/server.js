@@ -15,7 +15,7 @@ envContent.split('\n').forEach(line => {
 
 const API_KEY = envVars.API_KEY;
 
-const server = http.createServer(async (req, res) => {
+const server = http.createServer(async(req, res) => {
     // Enable CORS
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
@@ -28,7 +28,7 @@ const server = http.createServer(async (req, res) => {
     }
 
     // Serve static files
-    if (req.url === '/' || req.url === '/index.htm') {
+    if (req.url === '/' || req.url === '/section-A/ethereumgasfeecalculator/frontend/index.htm') {
         const filePath = path.join(__dirname, 'index.htm');
         fs.readFile(filePath, (err, data) => {
             if (err) {
