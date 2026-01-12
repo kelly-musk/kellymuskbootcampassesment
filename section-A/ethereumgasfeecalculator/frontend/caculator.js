@@ -12,7 +12,7 @@ const ethAmountInput = document.getElementById('ethAmount');
 const convertBtn = document.getElementById('convertBtn');
 const conversionResult = document.getElementById('conversionResult');
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     // DOM Elements
     const gasPriceInput = document.getElementById('gasPrice');
     const gasLimitInput = document.getElementById('gasLimit');
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function setupPresetButtons() {
         presetButtons.forEach(btn => {
-            btn.addEventListener('click', function () {
+            btn.addEventListener('click', function() {
                 presetButtons.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 const limit = parseInt(this.dataset.limit);
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Event listener for ETH amount input (auto-convert on Enter)
-    ethAmountInput.addEventListener('keypress', function (e) {
+    ethAmountInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             convertEthToUsd();
         }
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
     convertBtn.addEventListener('click', convertEthToUsd);
 
     // Auto-update conversion when ETH price changes
-    ethPriceInput.addEventListener('input', function () {
+    ethPriceInput.addEventListener('input', function() {
         currentEthPrice = parseFloat(this.value) || 0;
         // If there's already an ETH amount, update the conversion
         if (ethAmountInput.value && parseFloat(ethAmountInput.value) > 0) {
@@ -102,8 +102,9 @@ document.addEventListener('DOMContentLoaded', function () {
             button.textContent = 'Fetching...';
             ethPriceDisplay.textContent = 'Loading...';
 
-            const response = await fetch('http://localhost:3000/api/eth-price', {
-                method: 'GET'
+            const response = await fetch('https://api.freecryptoapi.com/v1/getData?symbol=ETH', {
+                method: 'GET',
+                headers: { 'Authorization': `Bearer u6gmifbq1cangi74haxf` }
             });
 
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);

@@ -27,49 +27,6 @@ const server = http.createServer(async(req, res) => {
         return;
     }
 
-    // Serve static files
-    if (req.url === '/' || req.url === '/section-A/ethereumgasfeecalculator/frontend/index.htm') {
-        const filePath = path.join(__dirname, 'index.htm');
-        fs.readFile(filePath, (err, data) => {
-            if (err) {
-                res.writeHead(404);
-                res.end('Not found');
-                return;
-            }
-            res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.end(data);
-        });
-        return;
-    }
-
-    if (req.url === '/caculator.js') {
-        const filePath = path.join(__dirname, 'caculator.js');
-        fs.readFile(filePath, (err, data) => {
-            if (err) {
-                res.writeHead(404);
-                res.end('Not found');
-                return;
-            }
-            res.writeHead(200, { 'Content-Type': 'application/javascript' });
-            res.end(data);
-        });
-        return;
-    }
-
-    if (req.url === '/style.css') {
-        const filePath = path.join(__dirname, 'style.css');
-        fs.readFile(filePath, (err, data) => {
-            if (err) {
-                res.writeHead(404);
-                res.end('Not found');
-                return;
-            }
-            res.writeHead(200, { 'Content-Type': 'text/css' });
-            res.end(data);
-        });
-        return;
-    }
-
     // Proxy API endpoint
     if (req.url === '/api/eth-price') {
         try {
