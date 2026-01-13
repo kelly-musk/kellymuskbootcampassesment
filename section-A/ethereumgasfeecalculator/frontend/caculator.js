@@ -102,9 +102,8 @@ document.addEventListener('DOMContentLoaded', function() {
             button.textContent = 'Fetching...';
             ethPriceDisplay.textContent = 'Loading...';
 
-            const response = await fetch('https://api.freecryptoapi.com/v1/getData?symbol=ETH', {
+            const response = await fetch('kelly-musk.up.railway.app', {
                 method: 'GET',
-                headers: { 'Authorization': `Bearer u6gmifbq1cangi74haxf` }
             });
 
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
