@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
             button.textContent = 'Fetching...';
             ethPriceDisplay.textContent = 'Loading...';
 
-            const response = await fetch('kelly-musk.up.railway.app', {
+            const response = await fetch('https://kelly-musk.up.railway.app', {
                 method: 'GET',
             });
 
