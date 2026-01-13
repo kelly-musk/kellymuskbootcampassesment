@@ -3,17 +3,17 @@ const path = require('path');
 const fs = require('fs');
 
 // Load .env file
-const envPath = path.join(__dirname, '.env');
-const envContent = fs.readFileSync(envPath, 'utf-8');
-const envVars = {};
-envContent.split('\n').forEach(line => {
-    const [key, value] = line.split('=');
-    if (key && value) {
-        envVars[key.trim()] = value.trim();
-    }
-});
+// const envPath = path.join(__dirname, '.env');
+// const envContent = fs.readFileSync(envPath, 'utf-8');
+// const envVars = {};
+// envContent.split('\n').forEach(line => {
+//     const [key, value] = line.split('=');
+//     if (key && value) {
+//         envVars[key.trim()] = value.trim();
+//     }
+// });
 
-const API_KEY = envVars.API_KEY;
+const API_KEY = process.env.API_KEY;
 
 const server = http.createServer(async(req, res) => {
     // Enable CORS
