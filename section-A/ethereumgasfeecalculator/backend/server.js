@@ -2,11 +2,8 @@ const http = require('http');
 
 // Load API key from environment variable
 const API_KEY = process.env.API_KEY;
-if (!API_KEY) {
-    throw new Error('API_KEY environment variable is not set');
-}
 
-const server = http.createServer(async (req, res) => {
+const server = http.createServer(async(req, res) => {
     // Enable CORS
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
