@@ -1,3 +1,5 @@
+const http = require('http');
+
 // Load API key from environment variable
 const API_KEY = process.env.API_KEY;
 
