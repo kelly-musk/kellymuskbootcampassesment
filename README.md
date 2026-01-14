@@ -1,7 +1,7 @@
 # ⛽ Ethereum Gas Fee Calculator
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js](https://img.shields.io/badge/Node.js-18.x-green.svg)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-24.x-green.svg)](https://nodejs.org/)
 
 A modern, responsive web application to calculate Ethereum transaction gas fees in real-time, featuring live price fetching and an ETH to USD converter.
 
